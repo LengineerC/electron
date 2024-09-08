@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <title>electron</title>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+  <body>
+    <span>page: </span><input type="text" id="page-input">
+    <span>pageSize: </span><input type="text" id='page-size-input'>
+    <button id="btn1">getAll</button>
+    <div id="div1"></div>
+
+    <!-- <span>name: </span><input id="name-input"><br>
+    <span>age: </span><input id="age-input"><br>
+    <button id="btn2">insert</button>
+    <div id="div2"></div>
+
+    <span>id: </span><input id="id-input"><br>
+    <button id="btn3">delete</button><br>
+
+    <span>id: </span><input id="age-id-input"/><br>
+    <span>age: </span><input id="age-input2"><br>
+    <button id="btn4">update</button><br> -->
+
+    <textarea id="query-input"></textarea><button id="run-btn">run</button><br>
+    <div id="run-div"></div>
+    
+    <hr>
+
+    <span>operation: </span><input id="op-input"><br>
+    <span>content: </span><input id="content-input"><br>
+    <button id="send-btn">send</button>
+    <div id="data-div"></div>
+
+    <script src="./render.js"></script>
+  </body>
+</html>

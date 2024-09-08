@@ -1,0 +1,12 @@
+dist/
+.history/
+deploy_versions/
+.temp/
+.rn_temp/
+node_modules/
+.DS_Store
+.history/
+/testReport
+/npm-packages-offline-cache
+/.idea/
+/.vscode/
