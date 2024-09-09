@@ -9,20 +9,31 @@ class DatabaseManager{
 
     connect=(dbPath)=>{
         return new Promise((resolve,reject)=>{
-            let DB_PATH = path.join(app.getAppPath(), `/config/${dbPath}`);
-            if (app.isPackaged) {
-                DB_PATH = path.join(path.dirname(app.getPath('exe')), `/config/${dbPath}`);
-            }
-            
-            this.db=new sqlite3.Database(DB_PATH,err=>{
-                if (err) {
-                    console.error('Link database failed: ' + err.message);
-                    reject(err);
-                }else{
-                    console.log('Link database successfully.')
-                    resolve();
+            try{
+                // let DB_PATH = path.join(app.getAppPath(), `/config/${dbPath}`);
+                // if (app.isPackaged) {
+                //     DB_PATH = path.join(path.dirname(app.getPath('exe')), `/config/${dbPath}`);
+                // }
+                let DB_PATH = path.join(app.getAppPath(), 'config', dbPath);
+                if (app.isPackaged) {
+                    DB_PATH = path.join(process.resourcesPath,'app.asar.unpacked' , 'config', dbPath);
+                    console.log(DB_PATH);
                 }
-            });
+                
+                this.db=new sqlite3.Database(DB_PATH,err=>{
+                    if (err) {
+                        console.error('Link database failed: ' + err.message);
+                        reject(err);
+                    }else{
+                        console.log('Link database successfully.')
+                        resolve();
+                    }
+                });
+            }catch(err){
+                reject(err);
+                console.log("Database connect failed",err);
+                throw new Error(err);
+            }
 
         })
     }

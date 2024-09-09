@@ -10,3 +10,4 @@ node_modules/
 /npm-packages-offline-cache
 /.idea/
 /.vscode/
+out/
